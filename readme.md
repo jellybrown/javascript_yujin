@@ -12,11 +12,13 @@
 <br>
 [2. 클래스](#2.클래스)
 <br>
-[3. Promise](#3.promise)
+[3. This](#3.this)
 <br>
-[4. 자바스크립트의 환경](#4.자바스크립트의-환경)
+[4. Promise](#4.promise)
 <br>
-[5. 브라우저 렌더링](#5.브라우저의-렌더링)
+[5. 자바스크립트의 환경](#5.자바스크립트의-환경)
+<br>
+[6. 브라우저 렌더링](#6.브라우저의-렌더링)
 
    <br>
 
@@ -151,7 +153,80 @@ const sum = (a, b) => {
 <br>
 <br>
 
-# 3.Promise
+# 3. this
+
+- 생성자 함수에서의 this
+
+```
+Class Animal {
+    constructor(color, size) {
+        color: this.color,
+        size: this.size
+    }
+}
+
+const dog = new Animal(white, small);
+
+// Animal클래스가 가지고있는 color와 size는,
+// 새로 생성이 될때 입력받는 color와 size이다.
+```
+
+<br>
+
+- 객체의 메서드에서의 this
+
+```
+const myCat = {
+    weight: '5kg',
+    goToHospital() {
+        return `${this.weight}라니.. 너무 무겁다`
+    }
+}
+
+myCat.goToHospital(); //5kg라니.. 너무 무겁다
+
+//this는 goToHospital을 호출한 myCat이다.
+```
+
+<br>
+
+- 일반 함수에서의 this
+
+```
+단순해서 쓸일이 없다. 굳이 한다면 this는 window이다.
+```
+
+<br>
+
+- 중첩 함수에서의 this
+
+```
+window.flavor = 'strawberry';
+const flavor = 'chocolate';
+
+function cake() {
+    const flavor = 'greentea';
+
+    function coffee() {
+        const withCoffee = this.flavor;
+        console.log(withCoffee);
+    }
+    coffee(); // coffee선언후 실행
+};
+
+cake(); //cake함수 실행
+strawberry 출력 !
+
+// withCoffee는 strawberry다.
+// 중첩함수에서의 this는 window이다.
+
+
+```
+
+<br>
+<br>
+
+# 4.Promise
 
 ## ❗️ 동기 (Sync)
 
@@ -210,7 +285,7 @@ async const
 <br>
 <br>
 
-# 4.자바스크립트의 환경
+# 5.자바스크립트의 환경
 
 ## ❗️ strict mode 적용 권장
 
@@ -240,7 +315,7 @@ async const
 <br>
 <br>
 
-# 5.브라우저의 렌더링
+# 6.브라우저의 렌더링
 
 ## ❗️ 렌더링 과정
 

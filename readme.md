@@ -19,8 +19,10 @@
 [5. 자바스크립트의 환경](#5.자바스크립트의-환경)
 <br>
 [6. 브라우저 렌더링](#6.브라우저의-렌더링)
-
-   <br>
+<br>
+[7. Event](#7.Event)
+<br>
+<br>
 
 # 0.변수
 
@@ -276,11 +278,17 @@ something('http://www.fdgdf.com', id, pw)
 ## ❗️ async / await
 
 - Promise를 기반으로 동작하는 비동기 처리 함수
+- Promise를 간결하게 이용할 수 있음
 - await로 정상적인 결과를 기다렸다가 다음을 처리
+- 여러개의 비동기결과를 동시에 가져와서, 넘겨줄 수 있음
 
 ```
 async const
 ```
+
+<br>
+
+## ❗️ Fetch
 
 <br>
 <br>
@@ -360,3 +368,45 @@ async const
  3. async 추가 -> html파싱과 동시에 로드, html파싱 중단 후 script 실행
  4. defer 추가 -> html파싱과 동시에 로드, html파싱 완료 후 script 실행
 ```
+
+<br>
+<br>
+
+# 7.Event
+
+## ❗️ 이벤트 캡쳐링(Capturing)과 버블링(Bubbling)
+
+- 캡쳐링: 하위 요소로 전달되는 이벤트방식
+- 버블링: 상위 요소로 전달되는 이벤트 방식
+
+<br>
+
+## ❗️ 이벤트 위임
+
+- 버블링 방식을 이용해서 하는 방식
+- 큰 요소에 이벤트를 걸고, target을 확인
+
+```
+const $ul = document.querySelector('ul');
+$ul.addEventListener('click', function() {
+        ...
+    }
+);
+```
+
+큰 요소인 ul에 이벤트를 걸어주고, 이벤트가 걸릴때 target을 먼저 확인한다.
+
+```
+if (e.target.className('list')) {
+    //할일 작성
+}
+```
+
+또는
+
+```
+if (!e.target.className('list')) return;
+//할일 작성
+```
+
+이렇게 할 수 있다.

@@ -21,6 +21,7 @@
 [6. 브라우저 렌더링](#6.브라우저의-렌더링)
 <br>
 [7. Event](#7.Event)
+
 <br>
 <br>
 
@@ -275,8 +276,17 @@ something('http://www.fdgdf.com', id, pw)
 
 <br>
 
+## ❗️ fetch, axios
+
+- Promise를 기반으로 동작하는 비동기 처리 방식
+- fetch는 내장 라이브러리라서 import를 하지 않아도 된다.
+- axios는 구버전 브라우저도 지원한다.
+
+<br>
+
 ## ❗️ async / await
 
+- ES7에 나와서 이제는 async, await를 많이 씀
 - Promise를 기반으로 동작하는 비동기 처리 함수
 - Promise를 간결하게 이용할 수 있음
 - await로 정상적인 결과를 기다렸다가 다음을 처리
@@ -287,8 +297,6 @@ async const
 ```
 
 <br>
-
-## ❗️ Fetch
 
 <br>
 <br>
@@ -410,3 +418,5 @@ if (!e.target.className('list')) return;
 ```
 
 이렇게 할 수 있다.
+
+<br>

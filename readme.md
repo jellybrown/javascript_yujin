@@ -29,7 +29,7 @@
 
 <br>
 
-```
+```js
 var a = 1;
 let b = 2;
 const c = 3;
@@ -80,7 +80,7 @@ const c = 3;
 
 - 함수 선언문:
 
-```
+```js
 function sum(a + b) {
     a + b;
 }
@@ -88,15 +88,15 @@ function sum(a + b) {
 
 - 함수 표현식
 
-```
+```js
 const sum = function (a, b) {
-    return a + b;
-}
+  return a + b;
+};
 ```
 
 - 클래스
 
-```
+```js
 class Person {
     constroctor(name, age) {
         name: this.name,
@@ -107,10 +107,10 @@ class Person {
 
 - 화살표 함수 : non-constroctor
 
-```
+```js
 const sum = (a, b) => {
-    return a + b;
-}
+  return a + b;
+};
 ```
 
 <br>
@@ -160,7 +160,7 @@ const sum = (a, b) => {
 
 - 생성자 함수에서의 this
 
-```
+```js
 Class Animal {
     constructor(color, size) {
         color: this.color,
@@ -178,13 +178,13 @@ const dog = new Animal(white, small);
 
 - 객체의 메서드에서의 this
 
-```
+```js
 const myCat = {
-    weight: '5kg',
-    goToHospital() {
-        return `${this.weight}라니.. 너무 무겁다`
-    }
-}
+  weight: "5kg",
+  goToHospital() {
+    return `${this.weight}라니.. 너무 무겁다`;
+  },
+};
 
 myCat.goToHospital(); //5kg라니.. 너무 무겁다
 
@@ -203,7 +203,7 @@ myCat.goToHospital(); //5kg라니.. 너무 무겁다
 
 - 중첩 함수에서의 this
 
-```
+```js
 window.flavor = 'strawberry';
 const flavor = 'chocolate';
 
@@ -258,19 +258,19 @@ strawberry 출력 !
 
 - 성공하면 resolve, 실패하면 reject함수를 호출하는 비동기 처리방식
 
-```
+```js
 const something = (url, id, password) => {
-    return new Promise((resolve, reject) => {
-        if( id === user.id && pw === user.pw ) {
-            resolve(id, password); //성공하면 넘김
-        } else {
-            reject(new Error('error!!')); //실패하면 에러
-        }
-    })
-}
+  return new Promise((resolve, reject) => {
+    if (id === user.id && pw === user.pw) {
+      resolve(id, password); //성공하면 넘김
+    } else {
+      reject(new Error("error!!")); //실패하면 에러
+    }
+  });
+};
 ```
 
-```
+```js
 something('http://www.fdgdf.com', id, pw)
     .then(res => userLogin(id, pw))
     .then(...)
@@ -373,18 +373,23 @@ async const
 - 브라우저는 순차적(동기적)으로 코드를 실행한다.
 - script의 위치에 따라 오류가 날 수 있다.
 
-```
-  <!-- 동기적 -->
+```html
+<!-- 동기적 -->
 
- 1. <head>태그가 끝나기전 -> script를 만나면 html파싱을 중단 후 실행
- 2. <body>태그가 끝나기전 -> 동기적으로 일어나서, 맨마지막에 실행
+1.
+<head>
+  태그가 끝나기전 -> script를 만나면 html파싱을 중단 후 실행 2.
+  <body>
+    태그가 끝나기전 -> 동기적으로 일어나서, 맨마지막에 실행
+  </body>
+</head>
 ```
 
-```
-  <!-- 비동기적 -->
+```html
+<!-- 비동기적 -->
 
- 3. async 추가 -> html파싱과 동시에 로드, html파싱 중단 후 script 실행
- 4. defer 추가 -> html파싱과 동시에 로드, html파싱 완료 후 script 실행
+3. async 추가 -> html파싱과 동시에 로드, html파싱 중단 후 script 실행 4. defer
+추가 -> html파싱과 동시에 로드, html파싱 완료 후 script 실행
 ```
 
 <br>
@@ -404,7 +409,7 @@ async const
 - 버블링 방식을 이용해서 하는 방식
 - 큰 요소에 이벤트를 걸고, target을 확인
 
-```
+```js
 const $ul = document.querySelector('ul');
 $ul.addEventListener('click', function() {
         ...
@@ -414,16 +419,16 @@ $ul.addEventListener('click', function() {
 
 큰 요소인 ul에 이벤트를 걸어주고, 이벤트가 걸릴때 target을 먼저 확인한다.
 
-```
-if (e.target.className('list')) {
-    //할일 작성
+```js
+if (e.target.className("list")) {
+  //할일 작성
 }
 ```
 
 또는
 
-```
-if (!e.target.className('list')) return;
+```js
+if (!e.target.className("list")) return;
 //할일 작성
 ```
 

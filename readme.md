@@ -501,3 +501,53 @@ if (!e.target.className("list")) return;
 
 - 각각 요소에 걸지 않으므로, 메모리 사용이 적음
 - 새로운 요소가 동적으로 생성되어도 이벤트가 걸림
+
+<br>
+<br>
+
+# 8.Prototype
+
+## ❗️ 프로토타입
+
+- javascript는 prototype 기반 언어이다.
+- c++, java는 class 기반 언어이다.
+- 객체가 가지고 있는 기본 프로퍼티(key + value 형태)이다.
+
+<br>
+
+## ❗️ 프로토타입의 이점
+
+1. 기본적으로 class를 정의하고 객체를 생성하면, 그 안에 있는 메서드는 객체를 생성할 때마다 생성이 된다.
+
+```js
+function Book(name) {
+  this.name = name;
+  this.open = () => {
+    console.log("책을 펼칩니다");
+  };
+}
+
+const uxBook = new Book(ux); //open 메서드 생성
+const jsBook = new Book(js); //open 메서드 생성
+```
+
+2. 함수의 내부 로직이 바뀌지 않는다면 굳이 계속 생성할 필요가 없다.
+3. 이때 prototype을 이용해서 만들 수 있다.
+
+```js
+function Book(name) {
+  this.name = name;
+}
+Book.prototype.open = () => {
+  console.log("책을 펼칩니다");
+};
+const uxBook = new Book(ux);
+const jsBook = new Book(js);
+
+// 이렇게 하면, open함수가 생성되는 객체의 __proto__안에 내장되어 있다.
+```
+
+<br>
+
+<br>
+<br>

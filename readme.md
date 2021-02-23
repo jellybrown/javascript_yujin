@@ -547,6 +547,20 @@ const jsBook = new Book(js);
 // 이렇게 하면, open함수가 생성되는 객체의 __proto__안에 내장되어 있다.
 ```
 
+4. 다른 클래스가 기존 클래스의 prototype을 상속받을 수 있다.
+
+```js
+function ArtBook() {
+  //..
+}
+
+ArtBook.prototype = Object.create(Book.prototype);
+//이렇게 상속받으면 새로 만드는 artBook에서 open함수를 호출할 수 있다.
+
+const artBook = new ArtBook();
+artBook.open();
+```
+
 <br>
 
 <br>
